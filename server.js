@@ -13,10 +13,16 @@ if (!fs.existsSync(MESSAGES_FILE)) fs.writeFileSync(MESSAGES_FILE, '[]', 'utf-8'
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+app.disable('x-powered-by');
+app.set('trust proxy', true);
+
 // Security headers
 app.use(helmet({
   contentSecurityPolicy: false, // Disabled for now due to inline styles; tighten in future
   crossOriginEmbedderPolicy: false,
+  hsts: {
+    includeSubDomains: false,
+  },
 }));
 
 // Gzip compression

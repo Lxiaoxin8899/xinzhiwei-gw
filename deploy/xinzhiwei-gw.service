@@ -1,0 +1,17 @@
+[Unit]
+Description=Xinzhiwei corporate website
+After=network.target
+
+[Service]
+Type=simple
+User=admin
+Group=admin
+WorkingDirectory=/home/admin/xinzhiwei-gw
+Environment=NODE_ENV=production
+Environment=PORT=3001
+ExecStart=/usr/bin/node /home/admin/xinzhiwei-gw/server.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
