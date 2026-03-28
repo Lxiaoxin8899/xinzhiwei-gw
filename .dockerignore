@@ -1,0 +1,9 @@
+node_modules
+src
+tailwind.config.js
+aetheris_ai_1
+aetheris_ai_2
+aetheris_deep_tech
+.git
+.gitignore
+*.md
