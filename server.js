@@ -1,8 +1,14 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const helmet = require('helmet');
 const compression = require('compression');
 const morgan = require('morgan');
+
+const DATA_DIR = path.join(__dirname, 'data');
+const MESSAGES_FILE = path.join(DATA_DIR, 'messages.json');
+if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+if (!fs.existsSync(MESSAGES_FILE)) fs.writeFileSync(MESSAGES_FILE, '[]', 'utf-8');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -48,8 +54,16 @@ app.post('/api/contact', (req, res) => {
   if (!name || !contact || !message) {
     return res.status(400).json({ error: '请填写所有字段' });
   }
-  // Log the submission (replace with email/DB in production)
-  console.log('[Contact Form]', { name, contact, message, time: new Date().toISOString() });
+  const entry = { id: Date.now(), name, contact, message, time: new Date().toISOString() };
+  try {
+    const messages = JSON.parse(fs.readFileSync(MESSAGES_FILE, 'utf-8'));
+    messages.push(entry);
+    fs.writeFileSync(MESSAGES_FILE, JSON.stringify(messages, null, 2), 'utf-8');
+  } catch (e) {
+    console.error('[Contact Form] Write error:', e.message);
+    return res.status(500).json({ error: '服务器存储异常，请稍后重试' });
+  }
+  console.log('[Contact Form]', entry);
   res.json({ success: true, message: '感谢您的留言，我们会尽快回复！' });
 });
 
