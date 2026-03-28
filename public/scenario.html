@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="AI-Perfumer 应用场景 — AI 调香实验室数字化工作空间，将前沿分子模拟与感官数据对齐，重新定义香精香料研发。"/>
+<meta property="og:title" content="AI-Perfumer | 应用场景"/>
+<meta property="og:description" content="AI 调香实验室数字化工作空间，原材料探索、配方创新、实验室终端同步。"/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="zh_CN"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<title>新智微科技 - 应用场景：AI 调香实验室</title>
+<link rel="stylesheet" href="/css/styles.css"/>
+<link rel="stylesheet" href="/css/fonts.css"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(13, 14, 20, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 40px -10px rgba(0, 218, 243, 0.3);
+        }
+        .text-gradient-primary {
+            background: linear-gradient(to right, #b2c5ff, #00daf3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .no-line { border: none !important; }
+        .tonal-transition { transition: background-color 0.3s ease; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-tertiary-fixed-dim/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl">
+<div class="max-w-[1920px] mx-auto px-8 flex justify-between items-center h-20">
+<a href="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+<span class="text-2xl font-bold tracking-tighter text-blue-900 dark:text-blue-100">AI-Perfumer</span>
+<span class="font-label text-[10px] tracking-widest text-tertiary border border-tertiary/30 px-1.5 py-0.5 rounded">研发实验室</span>
+</a>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-manrope text-sm font-semibold tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-all duration-300" href="/#capabilities">核心能力</a>
+<a class="font-manrope text-sm font-semibold tracking-tight text-blue-700 dark:text-blue-400 border-b-2 border-blue-700 pb-1 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-all duration-300" href="/scenario">应用场景</a>
+<a class="font-manrope text-sm font-semibold tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-all duration-300" href="/projects">项目案例</a>
+<a class="font-manrope text-sm font-semibold tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-all duration-300" href="/contact">联系我们</a>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary px-6 py-2.5 rounded-md font-semibold text-sm transition-all active:scale-95" onclick="window.scrollBy({top: window.innerHeight, behavior: 'smooth'})">
+            开始体验
+        </button>
+</div>
+</nav>
+<!-- Sidebar toggle for mobile -->
+<button id="sidebar-toggle" class="lg:hidden fixed left-4 top-24 z-50 bg-surface-container-high p-2 rounded-lg border border-outline-variant/20" aria-label="切换侧边栏">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- SideNavBar -->
+<aside id="sidebar" class="h-screen w-72 fixed left-0 top-20 bg-surface_container_low dark:bg-[#191b23] border-r border-outline_variant/15 flex-col py-8 gap-2 px-4 z-40 hidden lg:flex">
+<div class="mb-8 px-2">
+<h3 class="font-manrope font-bold text-[#0052cc] text-lg uppercase tracking-widest">R&amp;D Workflow</h3>
+<p class="text-[10px] font-space-grotesk text-slate-500 uppercase tracking-tighter">Phase 01: Discovery</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-surface_container_lowest dark:bg-[#004a54]/20 text-[#00daf3] border-r-4 border-[#00daf3] font-bold shadow-sm transition-transform duration-200" href="#node-discovery">
+<span class="material-symbols-outlined">search</span>
+<span class="font-space-grotesk text-xs tracking-widest uppercase">Material Query</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-slate-500 hover:bg-surface_container_high dark:hover:bg-slate-800/40 hover:translate-x-1 transition-transform duration-200" href="#node-discovery">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-space-grotesk text-xs tracking-widest uppercase">Knowledge Graph</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-slate-500 hover:bg-surface_container_high dark:hover:bg-slate-800/40 hover:translate-x-1 transition-transform duration-200" href="#node-formula">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-space-grotesk text-xs tracking-widest uppercase">Formula Design</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-slate-500 hover:bg-surface_container_high dark:hover:bg-slate-800/40 hover:translate-x-1 transition-transform duration-200" href="#node-terminal">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-space-grotesk text-xs tracking-widest uppercase">Assistant Terminal</span>
+</a>
+</nav>
+</aside>
+<!-- Main Canvas -->
+<main class="lg:ml-72 mt-20 p-6 lg:p-12 min-h-screen">
+<!-- Scenario Overview -->
+<header class="mb-16 relative overflow-hidden rounded-xl h-[400px] flex items-end">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 mix-blend-luminosity" alt="未来感高科技化学实验室" loading="eager" src="/images/scenario-hero.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+</div>
+<div class="relative z-10 p-10 max-w-4xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-tertiary text-on-tertiary-container px-3 py-1 rounded-full text-[10px] font-space-grotesk tracking-widest uppercase font-bold">Scenario ID: LAB-01</span>
+<span class="w-12 h-px bg-outline-variant/30"></span>
+<span class="text-tertiary-fixed-dim font-space-grotesk text-[10px] tracking-widest uppercase">Active Research Environment</span>
+</div>
+<h1 class="text-6xl font-headline font-extrabold tracking-tight mb-4 leading-[1.1]">AI 调香实验室<br/><span class="text-tertiary-fixed-dim">数字化工作空间</span></h1>
+<p class="text-lg text-slate-400 font-body max-w-2xl leading-relaxed">
+                    将前沿分子模拟与感官数据对齐，新智微科技正在重新定义香精香料的研发。在数字化坩埚中，我们将原材料的化学特性转化为极致的嗅觉体验。
+                </p>
+</div>
+</header>
+<!-- Material Discovery Node -->
+<section id="node-discovery" class="grid grid-cols-12 gap-8 mb-20 scroll-mt-32">
+<div class="col-span-12 mb-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00daf3]">layers</span>
+<h2 class="text-2xl font-headline font-bold">原材料探索节点</h2>
+</div>
+</div>
+<!-- Material Query -->
+<div class="col-span-12 lg:col-span-5 space-y-6">
+<div class="bg-surface-container-low p-8 rounded-xl glass-panel relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl">search</span>
+</div>
+<label class="font-label text-[10px] tracking-widest text-slate-500 uppercase block mb-4">Discovery Query</label>
+<div class="relative mb-6">
+<input id="discovery-query-input" class="w-full bg-surface-container/50 border-none border-b border-outline-variant/20 focus:ring-0 focus:border-tertiary-fixed-dim text-on-surface py-4 px-0 placeholder:text-slate-600 transition-all" placeholder="输入分子名称或感官关键词..." type="text" autocomplete="off"/>
+<div class="absolute right-0 bottom-4 cursor-pointer" id="discovery-radar-btn">
+<span class="material-symbols-outlined text-tertiary-fixed-dim hover:scale-110 transition-transform">radar</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center p-3 bg-surface-container rounded-lg border border-outline-variant/5 transition-all" id="match-card-1">
+<span class="text-sm font-medium" id="match-name-1">草莓香精</span>
+<span class="text-[10px] font-label text-tertiary-fixed-dim drop-shadow-[0_0_8px_rgba(0,218,243,0.8)] animate-pulse" id="match-score-1">MATCH 98.4%</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-surface-container/40 rounded-lg border border-outline-variant/5 transition-all" id="match-card-2">
+<span class="text-sm text-slate-400" id="match-name-2">香蕉香精</span>
+<span class="text-[10px] font-label text-slate-600" id="match-score-2">ANALYSED</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl relative overflow-hidden">
+<h3 class="font-label text-xs tracking-widest uppercase mb-6 text-[#00daf3]">分子深度洞察</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-background p-4 rounded-lg">
+<p class="text-[10px] text-slate-500 uppercase mb-1">挥发性速率</p>
+<p class="text-xl font-headline font-bold" id="volatility-rate">4.2 <span class="text-xs font-normal">mg/h</span></p>
+</div>
+<div class="bg-background p-4 rounded-lg">
+<p class="text-[10px] text-slate-500 uppercase mb-1">感官强度</p>
+<p class="text-xl font-headline font-bold" id="sensory-intensity">High</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Knowledge Graph -->
+<div class="col-span-12 lg:col-span-7">
+<div class="bg-surface-container-low rounded-xl h-full p-8 relative overflow-hidden flex flex-col">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="font-headline font-bold text-xl">感官知识图谱</h3>
+<p class="text-xs text-slate-500 mt-1">成分关联与香调演变可视化</p>
+</div>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full border border-outline-variant/20 flex items-center justify-center hover:bg-tertiary-fixed-dim/20 transition-colors">
+<span class="material-symbols-outlined text-sm">zoom_in</span>
+</button>
+<button class="w-8 h-8 rounded-full border border-outline-variant/20 flex items-center justify-center hover:bg-tertiary-fixed-dim/20 transition-colors">
+<span class="material-symbols-outlined text-sm">refresh</span>
+</button>
+</div>
+</div>
+<div class="flex-grow relative flex items-center justify-center">
+<!-- Simulated Knowledge Graph Visualization -->
+<div class="absolute inset-0">
+<img class="w-full h-full object-cover opacity-10 rounded-lg" alt="知识图谱背景" loading="lazy" src="/images/knowledge-graph-bg.jpg"/>
+</div>
+<div class="relative w-full h-64 flex items-center justify-center">
+<!-- SVG Decorative Graph -->
+<svg class="w-full h-full text-tertiary-fixed-dim/40" viewbox="0 0 400 200">
+<circle class="fill-surface stroke-outline-variant stroke-1 hover:stroke-tertiary-fixed-dim transition-colors cursor-pointer" cx="100" cy="50" r="15"></circle>
+<text x="100" y="54" id="kg-top-node" class="fill-on-surface-variant font-label text-[7px] uppercase tracking-widest pointer-events-none transition-all duration-500" text-anchor="middle">Top: Bergamot</text>
+<circle class="fill-surface stroke-outline-variant stroke-1 hover:stroke-tertiary-fixed-dim transition-colors cursor-pointer" cx="300" cy="50" r="15"></circle>
+<text x="300" y="54" id="kg-heart-node" class="fill-on-surface-variant font-label text-[7px] uppercase tracking-widest pointer-events-none transition-all duration-500" text-anchor="middle">Heart: Rose</text>
+<circle class="fill-surface stroke-outline-variant stroke-1 hover:stroke-tertiary-fixed-dim transition-colors cursor-pointer" cx="120" cy="150" r="15"></circle>
+<text x="120" y="154" id="kg-modifier-node" class="fill-on-surface-variant font-label text-[7px] uppercase tracking-widest pointer-events-none transition-all duration-500" text-anchor="middle">Modifier</text>
+<circle class="fill-surface stroke-outline-variant stroke-1 hover:stroke-tertiary-fixed-dim transition-colors cursor-pointer" cx="280" cy="150" r="15"></circle>
+<text x="280" y="154" class="fill-on-surface-variant font-label text-[7px] uppercase tracking-widest pointer-events-none transition-all duration-500" text-anchor="middle">Blender</text>
+<line stroke="currentColor" stroke-dasharray="4" x1="200" x2="100" y1="100" y2="50"></line>
+<line stroke="currentColor" stroke-dasharray="4" x1="200" x2="300" y1="100" y2="50"></line>
+<line stroke="currentColor" stroke-dasharray="4" x1="200" x2="120" y1="100" y2="150"></line>
+<line stroke="currentColor" stroke-dasharray="4" x1="200" x2="280" y1="100" y2="150"></line>
+<circle class="fill-tertiary/10 stroke-tertiary-fixed-dim stroke-2" cx="200" cy="100" r="30"></circle>
+<circle class="fill-transparent stroke-tertiary-fixed-dim stroke-1 stroke-dasharray-4 animate-[spin_10s_linear_infinite]" cx="200" cy="100" r="40"></circle>
+</svg>
+<div class="absolute bg-surface-container-highest px-4 py-2 rounded-lg shadow-[0_0_20px_rgba(0,218,243,0.15)] border border-tertiary-fixed-dim/30 animate-pulse transition-all duration-500" id="kg-center-box">
+<span class="text-xs font-bold uppercase tracking-widest text-[#00daf3]" id="kg-center-node">Base Note: Cedarwood</span>
+</div>
+</div>
+</div>
+<div class="mt-8 flex gap-4 overflow-x-auto pb-2">
+<span class="bg-surface-container-highest text-[10px] font-label px-3 py-1 rounded-full whitespace-nowrap">WOODY</span>
+<span class="bg-surface-container-highest text-[10px] font-label px-3 py-1 rounded-full whitespace-nowrap">CITRUS</span>
+<span class="bg-surface-container-highest text-[10px] font-label px-3 py-1 rounded-full whitespace-nowrap">SPICY</span>
+<span class="bg-surface-container-highest text-[10px] font-label px-3 py-1 rounded-full whitespace-nowrap">FLORAL</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Formula Innovation Node -->
+<section id="node-formula" class="grid grid-cols-12 gap-8 mb-20 scroll-mt-32">
+<div class="col-span-12 mb-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00daf3]">science</span>
+<h2 class="text-2xl font-headline font-bold">配方创新节点</h2>
+</div>
+</div>
+<!-- Formula Analysis & Design -->
+<div class="col-span-12 lg:col-span-8">
+<div class="bg-surface-container-low rounded-xl p-8 glass-panel border-l-4 border-primary transition-all duration-700" id="formula-panel">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline font-bold text-xl flex items-center gap-4">
+    智能配方设计助手
+    <button id="btn-ai-optimize" class="bg-tertiary/10 hover:bg-tertiary border border-tertiary/30 hover:border-tertiary text-tertiary hover:text-on-surface text-[10px] font-label px-3 py-1 rounded-full uppercase tracking-widest transition-all flex items-center gap-1 active:scale-95 group">
+        <span class="material-symbols-outlined text-[14px] group-hover:animate-pulse">auto_awesome</span> 
+        <span id="btn-ai-optimize-text">AI 智能调配</span>
+    </button>
+</h3>
+<div class="text-[10px] font-label tracking-widest text-slate-500">OPTIMIZATION ENGINE v4.2</div>
+</div>
+<div class="grid grid-cols-2 gap-12">
+<div class="space-y-8">
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-xs font-label uppercase">PG Ratio</span>
+<span class="text-xs font-bold transition-all duration-700" id="pg-text">70%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[70%] transition-all duration-1000 ease-out" id="pg-bar-fill"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-xs font-label uppercase">VG Ratio</span>
+<span class="text-xs font-bold transition-all duration-700" id="vg-text">30%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim w-[30%] transition-all duration-1000 ease-out" id="vg-bar-fill"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-xs font-label uppercase">Nicotine (mg/ml)</span>
+<span class="text-xs font-bold transition-all duration-500" id="nicotine-text">3.0</span>
+</div>
+<input id="nicotine-slider" class="w-full h-1.5 bg-gradient-to-r from-primary to-surface-container-highest rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-primary-fixed-dim [&::-webkit-slider-thumb]:rounded-full shadow-[0_0_10px_rgba(0,82,204,0.3)] transition-all duration-1000" type="range" min="0" max="6" step="0.1" value="3.0"/>
+</div>
+</div>
+<div class="bg-surface-container/30 p-6 rounded-lg border border-outline-variant/10">
+<h4 class="text-[10px] font-label text-slate-500 uppercase mb-4">AI 稳定性建议</h4>
+<ul class="space-y-4 transition-all duration-500 min-h-[100px]" id="ai-advice-list">
+<li class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">check_circle</span>
+<p class="text-xs leading-relaxed text-slate-300">当前 PG/VG 比例可确保长效的香气挂壁感与烟雾饱和度。</p>
+</li>
+<li class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary-fixed-dim text-lg">info</span>
+<p class="text-xs leading-relaxed text-slate-300">建议增加 0.2% 的稳定剂以防止柑橘香调在高温下氧化。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Simulation Results -->
+<div class="col-span-12 lg:col-span-4">
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col h-full border border-tertiary/20">
+<h3 class="font-headline font-bold text-xl mb-6">实时模拟反馈</h3>
+<div class="flex-grow space-y-8">
+<div class="flex items-center gap-6">
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full -rotate-90 drop-shadow-[0_0_4px_rgba(0,218,243,0.4)]">
+<circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="4" fill="none" class="text-surface-container-highest"></circle>
+<circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="4" fill="none" stroke-dasharray="175.9" stroke-dashoffset="14.1" class="text-tertiary-fixed-dim transition-all duration-1000 ease-out" stroke-linecap="round"></circle>
+</svg>
+<span class="text-sm font-bold relative z-10 drop-shadow-[0_0_8px_rgba(0,218,243,0.5)]"><span id="longevity-text">92</span>%</span>
+</div>
+<div>
+<p class="text-xs font-label uppercase text-slate-500">Scent Longevity</p>
+<p class="text-sm font-bold">极佳 (12h+ 留香)</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="4" fill="none" class="text-surface-container-highest"></circle>
+<circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="4" fill="none" stroke-dasharray="175.9" stroke-dashoffset="21.1" class="text-primary-fixed-dim transition-all duration-1000 ease-out" stroke-linecap="round"></circle>
+</svg>
+<span class="text-sm font-bold relative z-10"><span id="stability-text">88</span>%</span>
+</div>
+<div>
+<p class="text-xs font-label uppercase text-slate-500">Texture Stability</p>
+<p class="text-sm font-bold">稳定 (常温保存)</p>
+</div>
+</div>
+<div class="bg-tertiary/10 p-4 rounded-lg mt-auto">
+<p class="text-[10px] font-label text-tertiary-fixed-dim mb-2 uppercase tracking-widest">Scent Profile Projection</p>
+<div class="flex items-end gap-1 h-12">
+<div class="w-full bg-tertiary-fixed-dim/40 h-[40%] rounded-t-sm"></div>
+<div class="w-full bg-tertiary-fixed-dim/60 h-[70%] rounded-t-sm"></div>
+<div class="w-full bg-tertiary-fixed-dim/80 h-[95%] rounded-t-sm"></div>
+<div class="w-full bg-tertiary-fixed-dim/50 h-[60%] rounded-t-sm"></div>
+<div class="w-full bg-tertiary-fixed-dim/30 h-[20%] rounded-t-sm"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Execution Link (CTA) -->
+<section id="node-terminal" class="bg-surface-container-highest rounded-2xl p-1 relative overflow-hidden scroll-mt-32">
+<div class="bg-surface-container-low rounded-[1.25rem] p-10 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 bg-primary-container rounded-xl flex items-center justify-center shadow-[0_0_30px_rgba(0,82,204,0.3)]">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div>
+<h2 class="text-2xl font-headline font-bold">同步至实验室终端</h2>
+<p class="text-slate-400 mt-1">直接将模拟参数推送至生产线平板电脑及调配仪器</p>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+<div class="bg-surface-container px-6 py-3 rounded-lg flex items-center gap-4">
+<span class="text-[10px] font-label text-slate-500 uppercase">Target Device</span>
+<span class="text-sm font-bold">Lab-Unit_Alpha_09</span>
+</div>
+<button id="btn-push-lab" class="bg-gradient-to-r from-primary to-primary-container text-white px-10 py-4 rounded-md font-bold text-lg hover:shadow-[0_0_40px_rgba(0,82,204,0.4)] transition-all flex items-center justify-center gap-3 active:scale-95 group duration-500">
+<span id="btn-push-text">推送至实验室</span>
+<span id="btn-push-icon" class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer id="footer" class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+<div class="max-w-7xl mx-auto px-8 py-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="col-span-2 md:col-span-1">
+<div class="font-manrope font-bold text-lg text-slate-900 dark:text-slate-100 mb-6">AI-Perfumer</div>
+<p class="font-inter text-sm text-slate-500 max-w-xs">
+                © 2025 深圳新智微科技有限公司. 数字炼金术版。
+            </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm text-blue-700 dark:text-blue-500 uppercase tracking-widest">研究</h4>
+<a class="font-inter text-sm text-slate-500 hover:text-blue-500 underline-offset-4 hover:underline transition" href="/#capabilities">核心技术</a>
+<a class="font-inter text-sm text-slate-500 hover:text-blue-500 underline-offset-4 hover:underline transition" href="/scenario">研发实验室</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm text-blue-700 dark:text-blue-500 uppercase tracking-widest">公司</h4>
+<a class="font-inter text-sm text-slate-500 hover:text-blue-500 underline-offset-4 hover:underline transition" href="/contact">联系我们</a>
+<a class="font-inter text-sm text-slate-500 hover:text-blue-500 underline-offset-4 hover:underline transition" href="/projects">项目案例</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm text-blue-700 dark:text-blue-500 uppercase tracking-widest">法律</h4>
+<a class="font-inter text-sm text-slate-500 hover:text-blue-500 underline-offset-4 hover:underline transition" href="/contact">隐私协议</a>
+<a class="font-inter text-sm text-slate-500 hover:text-blue-500 underline-offset-4 hover:underline transition" href="/contact">联系我们</a>
+</div>
+</div>
+</footer>
+<!-- Toast Container -->
+<div id="toast-container" class="fixed top-24 right-8 z-[100] flex flex-col gap-3 pointer-events-none"></div>
+
+<!-- Interactive Simulation Logics -->
+<style>
+@keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slide-in-right { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+.animate-fade-in { animation: fade-in 0.4s ease-out forwards; opacity: 0; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const state = { step: 0 };
+    const queryInput = document.getElementById('discovery-query-input');
+    const radarBtn = document.getElementById('discovery-radar-btn');
+    const matchName1 = document.getElementById('match-name-1');
+    const matchScore1 = document.getElementById('match-score-1');
+    const volatilityRate = document.getElementById('volatility-rate');
+    const sensoryIntensity = document.getElementById('sensory-intensity');
+
+    const kgCenterNode = document.getElementById('kg-center-node');
+    const kgTopNode = document.getElementById('kg-top-node');
+    const kgHeartNode = document.getElementById('kg-heart-node');
+    
+    const btnAiOptimize = document.getElementById('btn-ai-optimize');
+    const btnAiOptimizeText = document.getElementById('btn-ai-optimize-text');
+    const formulaPanel = document.getElementById('formula-panel');
+    const pgText = document.getElementById('pg-text');
+    const pgBarFill = document.getElementById('pg-bar-fill');
+    const vgText = document.getElementById('vg-text');
+    const vgBarFill = document.getElementById('vg-bar-fill');
+    const nicText = document.getElementById('nicotine-text');
+    const nicSlider = document.getElementById('nicotine-slider');
+    
+    const longevityRing = document.querySelector('#longevity-text')?.parentElement.previousElementSibling.querySelector('circle:nth-child(2)');
+    const longevityText = document.querySelector('#longevity-text');
+    const stabilityRing = document.querySelector('#stability-text')?.parentElement.previousElementSibling.querySelector('circle:nth-child(2)');
+    const stabilityText = document.querySelector('#stability-text');
+    const adviceList = document.getElementById('ai-advice-list');
+
+    const btnPushLab = document.getElementById('btn-push-lab');
+    const btnPushText = document.getElementById('btn-push-text');
+    const btnPushIcon = document.getElementById('btn-push-icon');
+    const toastContainer = document.getElementById('toast-container');
+
+    const appleMock = {
+        name: 'Hexanal (青苹果醛)', score: 'MATCH 99.1%', volatility: '8.5', intensity: 'Very High',
+        kg: { center: 'Base Note: Green Apple', top: 'Top: Granny Smith', heart: 'Heart: Crisp' },
+        formula: { pg: 60, vg: 40, nic: 2.0 }, feedback: { lon: 96, sta: 91 },
+        advice: [
+            '<li class="flex gap-3 items-start animate-fade-in"><span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">check_circle</span><p class="text-xs leading-relaxed text-slate-300">苹果酯聚合度良好，酸度与甜度达到极佳平衡。</p></li>',
+            '<li class="flex gap-3 items-start animate-fade-in" style="animation-delay: 100ms;"><span class="material-symbols-outlined text-primary-fixed-dim text-lg">info</span><p class="text-xs leading-relaxed text-slate-300">适当降低了 VG 比例以提升青苹果风味的解析力与清凉度。</p></li>'
+        ]
+    };
+
+    const watermelonMock = {
+        name: 'Nonadienal (西瓜醛)', score: 'MATCH 97.8%', volatility: '6.2', intensity: 'Medium',
+        kg: { center: 'Base Note: Watermelon', top: 'Top: Melon Fresh', heart: 'Heart: Juicy' },
+        formula: { pg: 45, vg: 55, nic: 1.5 }, feedback: { lon: 89, sta: 98 },
+        advice: [
+            '<li class="flex gap-3 items-start animate-fade-in"><span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">check_circle</span><p class="text-xs leading-relaxed text-slate-300">西瓜酮衍生物极其稳定，有效锁住水润感与多汁感。</p></li>',
+            '<li class="flex gap-3 items-start animate-fade-in" style="animation-delay: 100ms;"><span class="material-symbols-outlined text-primary-fixed-dim text-lg">check_circle</span><p class="text-xs leading-relaxed text-slate-300">较高的 VG 比例提供了大烟雾量所需的丰满度。</p></li>'
+        ]
+    };
+
+    let activeMock = null;
+
+    window.showToast = function(message) {
+        const t = document.createElement('div');
+        t.className = 'bg-surface-container-high border border-tertiary-fixed-dim/30 px-6 py-4 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.5)] flex items-center gap-3 backdrop-blur-md animate-[slide-in-right_0.3s_ease-out] border-l-4 border-l-tertiary-fixed-dim';
+        const icon = document.createElement('span');
+        icon.className = 'material-symbols-outlined text-tertiary-fixed-dim';
+        icon.textContent = 'check_circle';
+        const text = document.createElement('span');
+        text.className = 'text-sm font-bold text-on-surface';
+        text.textContent = message;
+        t.appendChild(icon);
+        t.appendChild(text);
+        if (toastContainer) toastContainer.appendChild(t);
+        setTimeout(() => {
+            t.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+            setTimeout(() => t.remove(), 500);
+        }, 3000);
+    }
+
+    function handleQuery() {
+        const val = queryInput.value.trim().toLowerCase();
+        if (val.includes('苹果') || val.includes('apple')) activeMock = appleMock;
+        else if (val.includes('西瓜') || val.includes('watermelon')) activeMock = watermelonMock;
+        else return;
+
+        window.showToast(`已成功匹配物质矩阵: ${val}`);
+        
+        matchName1.parentElement.classList.add('opacity-50');
+        setTimeout(() => {
+            matchName1.textContent = activeMock.name;
+            matchScore1.textContent = activeMock.score;
+            volatilityRate.innerHTML = `${activeMock.volatility} <span class="text-xs font-normal">mg/h</span>`;
+            sensoryIntensity.textContent = activeMock.intensity;
+            kgCenterNode.textContent = activeMock.kg.center;
+            kgTopNode.textContent = activeMock.kg.top;
+            kgHeartNode.textContent = activeMock.kg.heart;
+            matchName1.parentElement.classList.remove('opacity-50');
+            state.step = 1;
+        }, 400);
+    }
+
+    queryInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleQuery(); });
+    radarBtn.addEventListener('click', handleQuery);
+
+    btnAiOptimize.addEventListener('click', () => {
+        if(!activeMock) {
+            window.showToast("请先在上方输入“苹果”或“西瓜”查询香精基础数据！");
+            queryInput.focus();
+            return;
+        }
+        
+        btnAiOptimizeText.textContent = "正在计算分子轨道...";
+        btnAiOptimize.classList.add('animate-pulse');
+        formulaPanel.classList.add('shadow-[0_0_40px_rgba(0,218,243,0.15)]');
+        
+        setTimeout(() => {
+            btnAiOptimizeText.textContent = "AI 智能调配完成";
+            btnAiOptimize.classList.remove('animate-pulse');
+            btnAiOptimize.classList.replace('text-tertiary', 'text-on-primary');
+            btnAiOptimize.classList.replace('bg-tertiary/10', 'bg-tertiary');
+            setTimeout(() => {
+                btnAiOptimizeText.textContent = "再次生成偏差变体";
+                btnAiOptimize.classList.replace('text-on-primary', 'text-tertiary');
+                btnAiOptimize.classList.replace('bg-tertiary', 'bg-tertiary/10');
+            }, 2000);
+
+            // Update PG/VG
+            pgText.textContent = activeMock.formula.pg + '%';
+            pgBarFill.style.width = activeMock.formula.pg + '%';
+            vgText.textContent = activeMock.formula.vg + '%';
+            vgBarFill.style.width = activeMock.formula.vg + '%';
+            nicText.textContent = activeMock.formula.nic.toFixed(1);
+            nicSlider.value = activeMock.formula.nic;
+
+            // Update Rings
+            const r = 175.9; // 2 * PI * 28
+            if(longevityRing && longevityText) {
+                const offLon = r - (r * activeMock.feedback.lon / 100);
+                longevityRing.style.strokeDashoffset = offLon;
+                let cLon = parseInt(longevityText.textContent);
+                let targetLon = activeMock.feedback.lon;
+                let iLon = setInterval(() => {
+                    if (cLon < targetLon) cLon++; else if (cLon > targetLon) cLon--; else clearInterval(iLon);
+                    longevityText.textContent = cLon;
+                }, 20);
+            }
+            if(stabilityRing && stabilityText) {
+                const offSta = r - (r * activeMock.feedback.sta / 100);
+                stabilityRing.style.strokeDashoffset = offSta;
+                let cSta = parseInt(stabilityText.textContent);
+                let targetSta = activeMock.feedback.sta;
+                let iSta = setInterval(() => {
+                    if (cSta < targetSta) cSta++; else if (cSta > targetSta) cSta--; else clearInterval(iSta);
+                    stabilityText.textContent = cSta;
+                }, 20);
+            }
+
+            adviceList.innerHTML = activeMock.advice.join('');
+            state.step = 2;
+        }, 1200);
+    });
+
+    btnPushLab.addEventListener('click', () => {
+        if (state.step < 2) {
+             window.showToast("请先进行 AI 自动发掘获得新配方！");
+             return;
+        }
+        if (btnPushLab.disabled) return;
+        
+        btnPushLab.disabled = true;
+        btnPushText.textContent = "正在构建推流...";
+        btnPushIcon.textContent = "sync";
+        btnPushIcon.classList.add('animate-spin');
+        
+        setTimeout(() => {
+            btnPushText.textContent = "送达仪器";
+            btnPushIcon.classList.remove('animate-spin');
+            btnPushIcon.textContent = "check_circle";
+            btnPushLab.classList.replace('from-primary', 'from-emerald-600');
+            btnPushLab.classList.replace('to-primary-container', 'to-emerald-800');
+            btnPushLab.classList.add('shadow-[0_0_40px_rgba(5,150,105,0.4)]');
+            
+            window.showToast("配方工程流已安全下发至目标终端：Lab-Unit_Alpha_09");
+            
+            setTimeout(() => {
+                btnPushLab.disabled = false;
+                btnPushText.textContent = "推送至实验室";
+                btnPushIcon.textContent = "send";
+                btnPushLab.classList.replace('from-emerald-600', 'from-primary');
+                btnPushLab.classList.replace('to-emerald-800', 'to-primary-container');
+                btnPushLab.classList.remove('shadow-[0_0_40px_rgba(5,150,105,0.4)]');
+            }, 4000);
+        }, 2000);
+    });
+});
+
+// Sidebar toggle for mobile
+document.getElementById('sidebar-toggle').addEventListener('click', function() {
+    var sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('hidden');
+    sidebar.classList.toggle('flex');
+});
+</script>
+</body></html>

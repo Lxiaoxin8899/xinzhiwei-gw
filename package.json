@@ -1,0 +1,23 @@
+{
+  "name": "aetheris-web",
+  "version": "1.0.0",
+  "description": "深圳新智微科技有限公司 Corporate Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "build:css": "npx tailwindcss -i src/input.css -o public/css/styles.css --minify",
+    "build": "npm run build:css"
+  },
+  "dependencies": {
+    "compression": "^1.8.1",
+    "express": "^4.22.1",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.11",
+    "tailwindcss": "^3.4.19"
+  }
+}

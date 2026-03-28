@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="dark" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="AI-Perfumer 项目案例 — 从智能硬件到合规服务，从定制开发到行业解决方案，新智微科技将前沿 AI 技术转化为可落地的商业价值。"/>
+<meta property="og:title" content="AI-Perfumer | 项目案例"/>
+<meta property="og:description" content="落地项目与服务矩阵，智能硬件、合规服务、AI 定制开发。"/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="zh_CN"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<title>AI-Perfumer | 项目案例</title>
+<link rel="stylesheet" href="/css/styles.css"/>
+<link rel="stylesheet" href="/css/fonts.css"/>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-panel {
+        background: rgba(13, 14, 20, 0.7);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .glow-cyan {
+        box-shadow: 0 0 40px -10px rgba(0, 218, 243, 0.3);
+    }
+    .text-gradient-primary {
+        background: linear-gradient(to right, #b2c5ff, #00daf3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-tertiary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl">
+<div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+<a href="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+<span class="text-2xl font-bold tracking-tighter text-blue-900 dark:text-blue-100">AI-Perfumer</span>
+<span class="font-label text-[10px] tracking-widest text-tertiary border border-tertiary/30 px-1.5 py-0.5 rounded">研发实验室</span>
+</a>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-manrope text-sm font-semibold tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-all duration-300" href="/#capabilities">核心能力</a>
+<a class="font-manrope text-sm font-semibold tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-all duration-300" href="/scenario">应用场景</a>
+<a class="font-manrope text-sm font-semibold tracking-tight text-blue-700 dark:text-blue-400 border-b-2 border-blue-700 pb-1 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-all duration-300" href="/projects">项目案例</a>
+<a class="font-manrope text-sm font-semibold tracking-tight text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-all duration-300" href="/contact">联系我们</a>
+</div>
+<button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center" aria-label="打开菜单">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<a class="hidden md:inline-block bg-primary hover:bg-primary-container text-on-primary px-6 py-2.5 rounded-md font-semibold text-sm transition-all active:scale-95" href="/scenario">
+    开始体验
+</a>
+</div>
+<div id="mobile-menu" class="hidden md:hidden bg-slate-950/95 backdrop-blur-xl border-t border-slate-800">
+<div class="px-8 py-6 flex flex-col gap-4">
+<a class="text-sm font-semibold text-slate-300 py-2" href="/#capabilities">核心能力</a>
+<a class="text-sm font-semibold text-slate-300 py-2" href="/scenario">应用场景</a>
+<a class="text-sm font-semibold text-slate-300 py-2" href="/projects">项目案例</a>
+<a class="text-sm font-semibold text-slate-300 py-2" href="/contact">联系我们</a>
+<a class="bg-primary text-on-primary px-6 py-2.5 rounded-md font-semibold text-sm text-center" href="/scenario">开始体验</a>
+</div>
+</div>
+</nav>
+
+<main class="relative pt-20 overflow-hidden">
+<!-- Hero Section -->
+<section class="relative pt-16 pb-20 px-8 max-w-7xl mx-auto">
+<div class="absolute -top-20 right-0 w-[500px] h-[500px] bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-[100px]"></div>
+<div class="relative z-10 max-w-3xl">
+<div class="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tertiary-container/30 border border-tertiary/20">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label text-xs font-bold text-tertiary uppercase tracking-widest">项目展示</span>
+</div>
+<h1 class="font-headline text-4xl md:text-6xl font-extrabold leading-[1.1] mb-6 tracking-tight">
+                落地项目 <br/>
+<span class="text-gradient-primary">与服务矩阵</span>
+</h1>
+<p class="text-on-surface-variant text-lg md:text-xl max-w-xl mb-6 font-light leading-relaxed">
+                从智能硬件到合规服务，从定制开发到行业解决方案。新智微科技将前沿 AI 技术转化为可落地的商业价值。
+            </p>
+</div>
+</section>
+
+<!-- Project 01 -->
+<section class="py-24 px-8 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-4xl text-tertiary" aria-hidden="true">precision_manufacturing</span>
+<span class="font-label text-xs text-outline tracking-widest uppercase">项目_01</span>
+</div>
+<h2 class="font-headline text-3xl md:text-4xl font-bold mb-4">小型化多通道调香机</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">集成多通道精密计量与自动化调配的桌面级调香设备，将传统实验室级别的调香能力压缩至便携尺寸，实现高精度、可重复的香精配方快速验证。</p>
+<div class="space-y-3">
+<div class="bg-surface-container p-4 rounded-lg flex items-center justify-between border-l-2 border-tertiary">
+<span class="text-sm font-medium">多通道并行</span>
+<span class="font-label font-bold text-tertiary text-sm">独立精密计量</span>
+</div>
+<div class="bg-surface-container p-4 rounded-lg flex items-center justify-between border-l-2 border-tertiary/50">
+<span class="text-sm font-medium">桌面级尺寸</span>
+<span class="font-label font-bold text-tertiary/80 text-sm">便携部署</span>
+</div>
+<div class="bg-surface-container p-4 rounded-lg flex items-center justify-between border-l-2 border-tertiary/30">
+<span class="text-sm font-medium">配方联动</span>
+<span class="font-label font-bold text-tertiary/60 text-sm">AI 平台直连</span>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-2xl p-10 flex items-center justify-center aspect-square max-w-[420px] mx-auto glow-cyan relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-transparent"></div>
+<div class="relative text-center">
+<span class="material-symbols-outlined text-[80px] text-tertiary/60 mb-4" aria-hidden="true">precision_manufacturing</span>
+<div class="font-label text-tertiary text-sm tracking-[0.3em] uppercase">Multi-Channel</div>
+<div class="font-headline text-3xl font-bold mt-2">调香机</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="max-w-7xl mx-auto px-8"><div class="h-px bg-outline-variant/20"></div></div>
+
+<!-- Project 02 -->
+<section class="py-24 px-8 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1 glass-panel rounded-2xl p-10 flex items-center justify-center aspect-square max-w-[420px] mx-auto relative overflow-hidden" style="box-shadow: 0 0 40px -10px rgba(0, 82, 204, 0.3);">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
+<div class="relative text-center">
+<span class="material-symbols-outlined text-[80px] text-primary/60 mb-4" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">verified</span>
+<div class="font-label text-primary text-sm tracking-[0.3em] uppercase">UK HMRC Compliance</div>
+<div class="font-headline text-3xl font-bold mt-2">税票服务</div>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">verified</span>
+<span class="font-label text-xs text-outline tracking-widest uppercase">项目_02</span>
+</div>
+<h2 class="font-headline text-3xl md:text-4xl font-bold mb-4">SVD电子烟英国税票服务</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">面向英国市场的电子烟合规税票全流程解决方案，覆盖税票申请、追溯管理与合规审计，帮助品牌快速通过英国 HMRC 监管要求。</p>
+<div class="space-y-3">
+<div class="bg-surface-container p-4 rounded-lg flex items-center justify-between border-l-2 border-primary">
+<span class="text-sm font-medium">HMRC 合规</span>
+<span class="font-label font-bold text-primary text-sm">全流程覆盖</span>
+</div>
+<div class="bg-surface-container p-4 rounded-lg flex items-center justify-between border-l-2 border-primary/50">
+<span class="text-sm font-medium">税票追溯</span>
+<span class="font-label font-bold text-primary/80 text-sm">实时追踪</span>
+</div>
+<div class="bg-surface-container p-4 rounded-lg flex items-center justify-between border-l-2 border-primary/30">
+<span class="text-sm font-medium">合规审计</span>
+<span class="font-label font-bold text-primary/60 text-sm">自动化报告</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="max-w-7xl mx-auto px-8"><div class="h-px bg-outline-variant/20"></div></div>
+
+<!-- Project 03 -->
+<section class="py-24 px-8 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-4xl text-tertiary" aria-hidden="true">smart_toy</span>
+<span class="font-label text-xs text-outline tracking-widest uppercase">项目_03</span>
+</div>
+<h2 class="font-headline text-3xl md:text-4xl font-bold mb-4">企业AI定制化开发服务</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">为企业量身打造 AI 解决方案，从需求分析到模型训练、系统集成与私有化部署，提供端到端的技术交付。</p>
+<div class="space-y-3">
+<div class="bg-surface-container p-4 rounded-lg flex items-center justify-between border-l-2 border-tertiary">
+<span class="text-sm font-medium">定制模型</span>
+<span class="font-label font-bold text-tertiary text-sm">私有化部署</span>
+</div>
+<div class="bg-surface-container p-4 rounded-lg flex items-center justify-between border-l-2 border-tertiary/50">
+<span class="text-sm font-medium">端到端交付</span>
+<span class="font-label font-bold text-tertiary/80 text-sm">全栈技术</span>
+</div>
+<div class="bg-surface-container p-4 rounded-lg flex items-center justify-between border-l-2 border-tertiary/30">
+<span class="text-sm font-medium">系统集成</span>
+<span class="font-label font-bold text-tertiary/60 text-sm">无缝对接</span>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-2xl p-10 flex items-center justify-center aspect-square max-w-[420px] mx-auto glow-cyan relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-transparent"></div>
+<div class="relative text-center">
+<span class="material-symbols-outlined text-[80px] text-tertiary/60 mb-4" aria-hidden="true">smart_toy</span>
+<div class="font-label text-tertiary text-sm tracking-[0.3em] uppercase">Enterprise AI</div>
+<div class="font-headline text-3xl font-bold mt-2">定制开发</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA Banner -->
+<section class="mb-24 mt-12 px-8 max-w-7xl mx-auto">
+<div class="bg-gradient-to-r from-primary-container to-tertiary-container rounded-[2rem] p-12 md:p-20 text-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 30px 30px;"></div>
+<div class="relative z-10">
+<h2 class="font-headline text-4xl md:text-5xl font-bold mb-6 text-on-primary">寻找适合您的解决方案？</h2>
+<p class="text-on-primary-container/80 text-lg mb-12 max-w-2xl mx-auto">无论是硬件集成、合规咨询还是 AI 定制开发，我们的团队随时准备为您提供专业支持。</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a class="bg-surface-container-lowest text-primary px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform inline-block" href="/contact">
+                    联系我们
+</a>
+<a class="border border-on-primary/30 text-on-primary px-10 py-4 rounded-full font-bold hover:bg-white/10 transition-all inline-block" href="/scenario">
+                    查看演示
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer id="footer" class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+<div class="max-w-7xl mx-auto px-8 py-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="col-span-2 md:col-span-1">
+<div class="font-manrope font-bold text-lg text-slate-900 dark:text-slate-100 mb-6">AI-Perfumer</div>
+<p class="font-inter text-sm text-slate-500 max-w-xs">
+            &copy; 2025 深圳新智微科技有限公司. 数字炼金术版。
+        </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm text-blue-700 dark:text-blue-500 uppercase tracking-widest">研究</h4>
+<a class="font-inter text-sm text-slate-500 hover:text-blue-500 underline-offset-4 hover:underline transition" href="/#capabilities">核心技术</a>
+<a class="font-inter text-sm text-slate-500 hover:text-blue-500 underline-offset-4 hover:underline transition" href="/scenario">研发实验室</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm text-blue-700 dark:text-blue-500 uppercase tracking-widest">公司</h4>
+<a class="font-inter text-sm text-slate-500 hover:text-blue-500 underline-offset-4 hover:underline transition" href="/contact">联系我们</a>
+<a class="font-inter text-sm text-slate-500 hover:text-blue-500 underline-offset-4 hover:underline transition" href="/projects">项目案例</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm text-blue-700 dark:text-blue-500 uppercase tracking-widest">法律</h4>
+<a class="font-inter text-sm text-slate-500 hover:text-blue-500 underline-offset-4 hover:underline transition" href="/contact">隐私协议</a>
+<a class="font-inter text-sm text-slate-500 hover:text-blue-500 underline-offset-4 hover:underline transition" href="/contact">联系我们</a>
+</div>
+</div>
+</footer>
+<script>
+document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+});
+</script>
+</body>
+</html>
